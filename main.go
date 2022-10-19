@@ -9,6 +9,9 @@ import (
 
 func main() {
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 	helloHandler := func(w http.ResponseWriter, req *http.Request) {
 		io.WriteString(w, "Hello, world!\n")
 	}
